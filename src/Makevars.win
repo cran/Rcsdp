@@ -1,0 +1,9 @@
+PKG_CFLAGS=-DNOSHORTS
+PKG_CPPFLAGS=-ICsdp/include
+PKG_LIBS=-LCsdp/lib -lsdp ${LAPACK_LIBS} ${BLAS_LIBS} ${FLIBS} -lm
+
+before: Csdp.ts 
+
+Csdp.ts:
+	cd Csdp/lib && make libsdp.a
+	touch $@

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+(cd src/Csdp/lib;
+    if test -f Makefile; then
+       make clean
+    fi)
+
+rm -f config.* autom4te.cache src/Csdp.ts src/Makevars
+ 
