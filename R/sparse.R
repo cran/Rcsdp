@@ -34,7 +34,7 @@ function(x,check.sym=FALSE)
     if (length(ind) == 0)
       return(.simple_triplet_zero_sym_matrix(nrow(x)))
              
-    ind <- ind[ind[,1L] >= ind[,2L],]
+    ind <- ind[ind[,1L] >= ind[,2L],,drop=FALSE]
     simple_triplet_sym_matrix(ind[, 1L], ind[, 2L], x[ind],
                           n = nrow(x))
 }
