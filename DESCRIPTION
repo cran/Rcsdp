@@ -1,5 +1,5 @@
 Package: Rcsdp
-Version: 0.1-4.1
+Version: 0.1-41
 Title: R interface to the CSDP semidefinite programming library
 Author: Hector Corrada Bravo (CSDP by Brian Borchers)
 Maintainer: Hector Corrada Bravo <hcorrada@gmail.com>
@@ -15,6 +15,6 @@ License: file LICENSE
 URL: https://projects.coin-or.org/Csdp/
 Repository: CRAN
 Repository/R-Forge/Project: rcsdp
-Repository/R-Forge/Revision: 16
-Date/Publication: 2010-04-10 16:51:59
-Packaged: 2010-04-10 09:54:37 UTC; ripley
+Repository/R-Forge/Revision: 18
+Date/Publication: 2010-04-12 06:47:36
+Packaged: 2010-04-10 20:39:11 UTC; rforge
