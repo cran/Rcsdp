@@ -8,6 +8,7 @@
  */
 
 
+#ifdef USEGETTIME
 #include <stddef.h>      /* definition of NULL */
 #include <sys/time.h>   /* definition of timeval struct and protyping of gettime
 			   ofday */
@@ -26,6 +27,7 @@ extern double t2;
 extern double starttime;
 extern double endtime;
 
+#endif
 
 int main(argc,argv)
      int argc;
@@ -41,8 +43,10 @@ int main(argc,argv)
   double *y;
   double pobj,dobj;
 
+#ifdef USEGETTIME
   gettimeofday(&tp, NULL);
   starttime=(double)tp.tv_sec+(1.e-6)*tp.tv_usec;
+#endif
 
   /*
    * Check that we have enough arguments.
@@ -50,7 +54,7 @@ int main(argc,argv)
 
   if ((argc < 2) || (argc > 4)) 
     {
-      printf("CSDP 6.0.1\n");
+      printf("CSDP 6.1.1\n");
       printf(" \n");
       printf("Usage: \n");
       printf("\n");
@@ -102,6 +106,7 @@ int main(argc,argv)
 
   free_prob(n,k,C,a,constraints,X,y,Z);
 
+#ifdef USEGETTIME
   gettimeofday(&tp, NULL);
   endtime=(double)tp.tv_sec+(1.e-6)*tp.tv_usec;
   totaltime=endtime-starttime;
@@ -111,6 +116,7 @@ int main(argc,argv)
   printf("Factor time: %f \n",factortime);
   printf("Other time: %f \n",othertime);
   printf("Total time: %f \n",totaltime);
+#endif
 
   return(ret);
 }

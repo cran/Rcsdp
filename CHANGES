@@ -1,3 +1,13 @@
+2012-01-13 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1.50
+
+* Changed version naming
+* Added configure.ac to source package
+* Fixed issues in Makevars.in requested by Brian Ripley
+
+2010-08-11 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1-5
+
+* Fixed bug reported by Dustin Lennon, where all-zero constraint vectors on linear blocks were not properly initialized.
+
 2009-04-24 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1-4
 
 * Fixed bug reported by Jacques-Olivier Moussafir <msfr@mac.com> where an error is thrown on matrices having only one non-zero entry

@@ -134,7 +134,12 @@ constraints_csdp2R <- function(A,prob.info)
     do.one.constraint <- function(constraintnum)
       {
         Ai <- A[[constraintnum]]
-        ret <- lapply(prob.info$block.sizes,function(x) .simple_triplet_zero_sym_matrix(x))
+        ret <- mapply(FUN=function(type, size) {
+          if (type == 1) {
+            .simple_triplet_zero_sym_matrix(size)
+          } else {
+            rep(0, size)
+          }}, prob.info$block.types, prob.info$block.sizes, SIMPLIFY=FALSE)
         
         for (j in 1:length(Ai)) {
           Aij <- Ai[[j]];

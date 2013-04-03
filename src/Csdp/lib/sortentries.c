@@ -7,33 +7,35 @@ struct entry {
 #ifndef NOSHORTS
   unsigned short indexi;
   unsigned short indexj;
+  unsigned short indexk;
+  unsigned short indexl;
   double entry;
 #else
   int indexi;
   int indexj;
+  int indexk;
+  int indexl;
   double entry;
 #endif
 };
 
-int mycompare(p1,p2)
-     struct entry *p1;
-     struct entry *p2;
+int mycompare(const void *p1, const void *p2)
 {
-  if (p1->indexi < p2->indexi)
+  if (((struct entry *)p1)->indexi < ((struct entry *)p2)->indexi)
     {
       return(-1);
     };
-  if (p1->indexi == p2->indexi)
+  if (((struct entry *)p1)->indexi == ((struct entry *)p2)->indexi)
     {
-      if (p1->indexj < p2->indexj)
+      if (((struct entry *)p1)->indexj < ((struct entry *)p2)->indexj)
 	{
 	  return(-1);
 	};
-      if (p1->indexj == p2->indexj)
+      if (((struct entry *)p1)->indexj == ((struct entry *)p2)->indexj)
 	{
 	  return(0);
 	};
-      if (p1->indexj > p2->indexj)
+      if (((struct entry *)p1)->indexj > ((struct entry *)p2)->indexj)
 	{
 	  return(1);
 	};
@@ -105,7 +107,7 @@ void sort_entries(k,C,constraints)
 	   */
 	  
 	  qsort(entries,(size_t)ptr->numentries,sizeof(struct entry),
-		&mycompare);
+		mycompare);
 
 	  /*
 	   * Copy out.
