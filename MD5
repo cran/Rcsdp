@@ -1,5 +1,5 @@
-12291793d0be602f596b32375fe95f3e *CHANGES
-9842b97ba1a47c4bfddf7441c28332e7 *DESCRIPTION
+2b1c16732906d5dc970fe2205619fea0 *CHANGES
+d13bec46aaa4d8e17774652b5e49a76f *DESCRIPTION
 9d09f79d295879f8122b0024837f6eda *NAMESPACE
 651fca943802418973b4b404ec85d0c4 *R/Rcsdp.R
 5713de1ba3211a2d1c196c3f9ab0c33f *R/convert.R
@@ -101,7 +101,7 @@ ddcb577bdb4c99c17674654ecdf5a3e7 *src/Csdp/theta/complement.c
 b0a667fa6ddb13c9c5af57a923b55367 *src/Csdp/theta/graphtoprob.c
 05fe43f93ae72eb5f4f6bced0353653b *src/Csdp/theta/rand_graph.c
 c83a85a5562349750e8600439304c5ef *src/Csdp/theta/theta.c
-9511c02f73a61ee700412d828c68d5fd *src/Makevars.in
+38650b940d70a88b5d6b7fe5ef01564a *src/Makevars.in
 470ae585d47a8084362b0fcc75189a7f *src/Makevars.win
 347bb72cd2e7fd1275962699dad42f90 *src/Rcsdp.c
 0203b62be0c9978ef788c66d84662c95 *src/convert.c

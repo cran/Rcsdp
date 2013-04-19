@@ -1,3 +1,9 @@
+2012-04-19 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 1.1.52
+
+* Updated CSDP to version 6.1.1
+* Fixed bug in constraint matrix conversion from default behavior of mapply
+* Updated configure script to fix build errors
+
 2012-01-13 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1.50
 
 * Changed version naming
