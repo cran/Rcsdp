@@ -1,5 +1,5 @@
 2b1c16732906d5dc970fe2205619fea0 *CHANGES
-b1c9e18415e00b6e0ac673389395c74e *DESCRIPTION
+9f49a4ed1418696d8554f05053f7806a *DESCRIPTION
 9d09f79d295879f8122b0024837f6eda *NAMESPACE
 651fca943802418973b4b404ec85d0c4 *R/Rcsdp.R
 5713de1ba3211a2d1c196c3f9ab0c33f *R/convert.R
@@ -44,7 +44,7 @@ e77f8e4d21e4760c4ef21878cf263a3e *src/Csdp/include/blockmat.h
 c6f1afa8b3c444743d570e9fba173830 *src/Csdp/include/index.h
 f2ce87e96b703c1c3fa4842db4550688 *src/Csdp/include/parameters.h
 c68e7080f212d6538dd8caa325f09b05 *src/Csdp/lib/Fnorm.c
-15e5bf03a71415e6723d363d821e2772 *src/Csdp/lib/Makefile
+e2990b0eaaaadd622687e51c89188b7b *src/Csdp/lib/Makefile
 63b28a3db8244ffe253652a3a7e668d6 *src/Csdp/lib/add_mat.c
 d9a449b69b9fc863cbf57e75a73383f7 *src/Csdp/lib/addscaledmat.c
 8d57a45df73f727efd804f064f62e832 *src/Csdp/lib/allocmat.c
