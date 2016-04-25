@@ -28,7 +28,7 @@
   Block structured matrices must be specified as described in
   \code{\link{csdp}}.
   Files read must be in SDPA format (see
-  \url{http://infohost.nmt.edu/~sdplib/FORMAT}).
+  \url{http://euler.nmt.edu/~brian/sdplib/FORMAT}).
   However, these functions don't support comments or grouping characters
   (e.g. braces, parentheses) in the block sizes specification.
 }
@@ -39,7 +39,7 @@
   All returned matrices are lists of objects of class \code{simple_triplet_sym_matrix}.
 }
 \references{
-  \url{http://infohost.nmt.edu/~sdplib/FORMAT}
+  \url{http://euler.nmt.edu/~brian/sdplib/FORMAT}
 }
 \author{Hector Corrada Bravo}
 \seealso{\code{\link{csdp}}}

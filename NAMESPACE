@@ -1,6 +1,9 @@
 useDynLib(Rcsdp)
+importFrom("methods", "as")
+importFrom("stats", "rnorm")
 
 export("csdp",
+       "csdp.control",
        "readsdpa",
        "writesdpa",
        "readsdpa.sol",
