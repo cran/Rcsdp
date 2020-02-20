@@ -1,19 +1,27 @@
-2012-04-19 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 1.1.52
+# Rcsdp 0.1.56
+
+* Added a `NEWS.md` file to track changes to the package.
+* Exposes function 'csdp.control' through NAMESPACE
+* Adds function 'csdp_minimal' (contributed by Don van den Bergh - https://github.com/vandenman, https://github.com/hcorrada/rcsdp/pull/1)
+* Fixes 'significant warning' from use of `R CMD config` to get
+CPP variable
+
+# Rcsdp 0.1.52
 
 * Updated CSDP to version 6.1.1
 * Fixed bug in constraint matrix conversion from default behavior of mapply
 * Updated configure script to fix build errors
 
-2012-01-13 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1.50
+# Rcsdp 0.1.50
 
 * Changed version naming
 * Added configure.ac to source package
 * Fixed issues in Makevars.in requested by Brian Ripley
 
-2010-08-11 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1-5
+# Rcsdp 0.1-5
 
 * Fixed bug reported by Dustin Lennon, where all-zero constraint vectors on linear blocks were not properly initialized.
 
-2009-04-24 Hector Corrada Bravo <hcorrada@gmail.com> - commited version 0.1-4
+# Rcsdp 0.1-4
 
 * Fixed bug reported by Jacques-Olivier Moussafir <msfr@mac.com> where an error is thrown on matrices having only one non-zero entry

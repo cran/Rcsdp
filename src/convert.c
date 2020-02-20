@@ -9,7 +9,7 @@ SEXP int_vector_csdp2R(int n,
   int i;
   int *intvec;
 
-  PROTECT(ret = allocVector(INTSXP,n+1));
+  ret = allocVector(INTSXP,n+1);
   intvec = INTEGER(ret);
   for (i=1; i<=n; i++)
     intvec[i] = y[i];
@@ -23,7 +23,7 @@ SEXP double_vector_csdp2R(int n,
   int i;
   double *dblvec;
 
-  PROTECT(ret = allocVector(REALSXP,n+1));
+  ret = allocVector(REALSXP,n+1);
   dblvec = REAL(ret);
   for (i=1; i<=n; i++)
     dblvec[i] = y[i];
@@ -122,31 +122,31 @@ SEXP blkmatrix_csdp2R(struct blockmatrix X)
   enum blkmatrix_slots {NBLOCKS, BLOCKS};
   enum blkrec_slots {BLOCKSIZE, BLOCKCATEGORY,DATA};
 
-  PROTECT(ret = allocVector(VECSXP, 2));
+  ret = PROTECT(allocVector(VECSXP, 2));
 
-  PROTECT(nblocks = allocVector(INTSXP, 1));
+  nblocks = PROTECT(allocVector(INTSXP, 1));
   INTEGER(nblocks)[0] = X.nblocks;
   SET_VECTOR_ELT(ret, NBLOCKS, nblocks);
 
-  PROTECT(blocks = allocVector(VECSXP, X.nblocks));
+  blocks = PROTECT(allocVector(VECSXP, X.nblocks));
   for (j=1; j<=X.nblocks; j++) {
-    PROTECT(cur_block = allocVector(VECSXP,3));
-    PROTECT(blocksize = allocVector(INTSXP,1));
+    cur_block = PROTECT(allocVector(VECSXP,3));
+    blocksize = PROTECT(allocVector(INTSXP,1));
     INTEGER(blocksize)[0] = X.blocks[j].blocksize;
     
-    PROTECT(blockcategory = allocVector(INTSXP,1));
+    blockcategory = PROTECT(allocVector(INTSXP,1));
     INTEGER(blockcategory)[0] = (X.blocks[j].blockcategory == MATRIX) ? 1 : 2;
 
     if (X.blocks[j].blockcategory == MATRIX) {
       allocsize = X.blocks[j].blocksize * X.blocks[j].blocksize;
-      PROTECT(data = allocVector(REALSXP,allocsize));
+      data = PROTECT(allocVector(REALSXP,allocsize));
       dblvec = REAL(data);
       for (k=0; k<allocsize; k++)
 	dblvec[k] = X.blocks[j].data.mat[k];
+    } else {
+      data = PROTECT(double_vector_csdp2R(X.blocks[j].blocksize, X.blocks[j].data.vec));
     }
-    else
-      data = double_vector_csdp2R(X.blocks[j].blocksize, X.blocks[j].data.vec);
-
+    
     SET_VECTOR_ELT(cur_block, BLOCKSIZE, blocksize);
     SET_VECTOR_ELT(cur_block, BLOCKCATEGORY, blockcategory);
     SET_VECTOR_ELT(cur_block, DATA, data);
@@ -154,7 +154,7 @@ SEXP blkmatrix_csdp2R(struct blockmatrix X)
     UNPROTECT(4);
   }
   SET_VECTOR_ELT(ret, BLOCKS, blocks);
-  UNPROTECT(2);
+  UNPROTECT(3);
   return ret;
 }
 
@@ -162,7 +162,7 @@ SEXP constraints_csdp2R(int numconstraints,
 		      struct constraintmatrix *constraints)
 {
   struct sparseblock *ptr;
-  int i, j, k;
+  int i, j;//, k;
   SEXP ret, Ai, Aij;
   SEXP iindices, jindices, entries;
   SEXP blocknum, blocksize, constraintnum;
@@ -170,60 +170,59 @@ SEXP constraints_csdp2R(int numconstraints,
 
   enum constraint_blockslots {IIND, JIND, ENTRIES, BLOCKNUM, BLOCKSIZE, CONSTRAINTNUM, NUMENTRIES};
  
-  int *intvec;
-  double *dblvec;
   int nblocks, nnz;
 
-  PROTECT(ret = allocVector(VECSXP, numconstraints));
+  ret = PROTECT(allocVector(VECSXP, numconstraints));
 
   if (constraints != NULL) {
     for (i=1; i<=numconstraints; i++) {
       ptr = constraints[i].blocks;
       nblocks = 0;
       while (ptr != NULL) {
-	nblocks += 1;
-	ptr = ptr->next;
+        nblocks += 1;
+        ptr = ptr->next;
       }
-      PROTECT(Ai = allocVector(VECSXP,nblocks));
+      Ai = PROTECT(allocVector(VECSXP,nblocks));
 
       ptr = constraints[i].blocks;
       for (j=1; j<=nblocks; j++) {
-	PROTECT(Aij = allocVector(VECSXP,7));
-	nnz = ptr->numentries;
-
-	PROTECT(numentries = allocVector(INTSXP,1));
-	INTEGER(numentries)[0] = nnz;
-	SET_VECTOR_ELT(Aij, NUMENTRIES, numentries);
-
-	PROTECT(blocknum = allocVector(INTSXP,1));
-	INTEGER(blocknum)[0] = ptr->blocknum;
-	SET_VECTOR_ELT(Aij, BLOCKNUM, blocknum);
-
-	PROTECT(blocksize = allocVector(INTSXP,1));
-	INTEGER(blocksize)[0] = ptr->blocksize;
-	SET_VECTOR_ELT(Aij, BLOCKSIZE, blocksize);
-	
-	PROTECT(constraintnum = allocVector(INTSXP,1));
-	INTEGER(constraintnum)[0] = ptr->constraintnum;
-	SET_VECTOR_ELT(Aij, CONSTRAINTNUM, constraintnum);
-
-	iindices = int_vector_csdp2R(nnz, ptr->iindices);
-	SET_VECTOR_ELT(Aij,IIND, iindices);
-
-	jindices = int_vector_csdp2R(nnz, ptr->jindices);
-	SET_VECTOR_ELT(Aij, JIND, jindices);
-
-	entries = double_vector_csdp2R(nnz, ptr->entries);
-	SET_VECTOR_ELT(Aij, ENTRIES, entries);
-
-	SET_VECTOR_ELT(Ai, j-1, Aij);
-	UNPROTECT(8);
-	ptr = ptr->next;
+        Aij = PROTECT(allocVector(VECSXP,7));
+        nnz = ptr->numentries;
+        
+        numentries = PROTECT(allocVector(INTSXP,1));
+        INTEGER(numentries)[0] = nnz;
+        SET_VECTOR_ELT(Aij, NUMENTRIES, numentries);
+        
+        blocknum = PROTECT(allocVector(INTSXP,1));
+        INTEGER(blocknum)[0] = ptr->blocknum;
+        SET_VECTOR_ELT(Aij, BLOCKNUM, blocknum);
+        
+        blocksize = PROTECT(allocVector(INTSXP,1));
+        INTEGER(blocksize)[0] = ptr->blocksize;
+        SET_VECTOR_ELT(Aij, BLOCKSIZE, blocksize);
+        
+        constraintnum = PROTECT(allocVector(INTSXP,1));
+        INTEGER(constraintnum)[0] = ptr->constraintnum;
+        SET_VECTOR_ELT(Aij, CONSTRAINTNUM, constraintnum);
+        
+        iindices = PROTECT(int_vector_csdp2R(nnz, ptr->iindices));
+        SET_VECTOR_ELT(Aij,IIND, iindices);
+        
+        jindices = PROTECT(int_vector_csdp2R(nnz, ptr->jindices));
+        SET_VECTOR_ELT(Aij, JIND, jindices);
+        
+        entries = PROTECT(double_vector_csdp2R(nnz, ptr->entries));
+        SET_VECTOR_ELT(Aij, ENTRIES, entries);
+        
+        SET_VECTOR_ELT(Ai, j-1, Aij);
+        UNPROTECT(8);
+        ptr = ptr->next;
       }
       SET_VECTOR_ELT(ret, i-1, Ai);
       UNPROTECT(1);
     }
   }
+  UNPROTECT(1);
   return ret;
 }
 

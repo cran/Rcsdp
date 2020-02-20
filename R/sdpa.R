@@ -35,7 +35,7 @@ readsdpa <- function(file="",verbose=FALSE)
     if (file=="")
       stop("'file' argument must be a non-empty string")
     
-    ret <- .Call("readsdpa",
+    ret <- .Call(C_readsdpa,
                  as.character(file),
                  as.integer(verbose),
                  PACKAGE="Rcsdp")
@@ -59,7 +59,7 @@ readsdpa.sol <- function(K,C,m,file="")
       stop("'file' argument must be a non-empty string")
 
     prob.info <- get.prob.info(K,m);
-    ret <- .Call("readsdpa_sol",
+    ret <- .Call(C_readsdpa_sol,
                  as.character(file),
                  as.integer(sum(prob.info$block.sizes)),
                  as.integer(m),
@@ -80,7 +80,7 @@ writesdpa <- function(C,A,b,K,file="")
     prob.info <- get.prob.info(K,length(b));
     validate.data(C,A,b,prob.info)
     prob.data <- prepare.data(C,A,b,prob.info)
-    .Call("writesdpa",
+    .Call(C_writesdpa,
           as.character(file),
           as.integer(sum(prob.info$block.sizes)),
           as.integer(prob.info$nconstraints),
@@ -100,7 +100,7 @@ writesdpa.sol <- function(X,Z,y,K,file="")
 
     prob.info <- get.prob.info(K,length(y));
 
-    .Call("writesdpa_sol",
+    .Call(C_writesdpa_sol,
           as.character(file),
           as.integer(sum(prob.info$block.sizes)),
           as.integer(prob.info$nconstraints),

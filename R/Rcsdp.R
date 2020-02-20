@@ -11,7 +11,7 @@ csdp <- function(C,A,b,K,control=csdp.control()) {
   prob.data <- prepare.data(C,A,b,prob.info)
   write.control.file(control)
   
-  ret <- .Call("csdp",
+  ret <- .Call(C_csdp,
                as.integer(sum(prob.info$block.sizes)),
                as.integer(prob.info$nconstraints),
                as.integer(prob.info$nblocks),
@@ -144,3 +144,19 @@ write.control.file <- function(control)
       cat(names(control)[i],"=",control[[i]],"\n",sep="",file=fileptr)
     close(fileptr)
   }
+
+csdp_minimal <- function(sum.block.sizes, nconstraints, nblocks, block.types, block.sizes, C, A, b) {
+  return(.Call(
+    C_csdp,
+    as.integer(sum.block.sizes),
+    as.integer(nconstraints),
+    as.integer(nblocks),
+    as.integer(block.types),
+    as.integer(block.sizes),
+    C,
+    A,
+    b,
+    PACKAGE="Rcsdp"
+  ))
+}
+

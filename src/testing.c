@@ -22,7 +22,6 @@ SEXP test_int_vector(SEXP n_p,
   vv = int_vector_R2csdp(n,v);
   ret = int_vector_csdp2R(n,vv);
   free(vv);
-  UNPROTECT(1);
   return ret;
 }
 
@@ -37,7 +36,6 @@ SEXP test_double_vector(SEXP n_p,
   vv = double_vector_R2csdp(n,v);
   ret = double_vector_csdp2R(n,vv);
   free(vv);
-  UNPROTECT(1);
   return ret;
   
 }
@@ -46,12 +44,10 @@ SEXP test_blkmatrix(SEXP X)
 {
   struct blockmatrix XX;
   SEXP ret;
-  int i;
 
   XX = blkmatrix_R2csdp(X);
   ret = blkmatrix_csdp2R(XX);
   free_mat(XX);
-  UNPROTECT(1);
   return ret;
 }
 
@@ -66,6 +62,5 @@ SEXP test_constraints(SEXP k_p,
   AA = constraints_R2csdp(A);
   ret = constraints_csdp2R(k,AA);
   free_constraints(k,AA);
-  UNPROTECT(1);
   return ret;
 }

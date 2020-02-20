@@ -8,6 +8,8 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <declarations.h>
+#include <stdlib.h> // for NULL
+#include <R_ext/Rdynload.h>
 
 SEXP int_vector_csdp2R(int, int*);
 SEXP double_vector_csdp2R(int, double*);
@@ -30,20 +32,15 @@ SEXP csdp(SEXP n_p,
 	  SEXP b_p)
 {
   SEXP X_p, Z_p, y_p, ret, pobj_p, dobj_p, status_p;
-  SEXP Ai, Aij, pData;
   enum AIJ_SLOTS {AIJ_NNZ, AIJ_IIND, AIJ_JIND, AIJ_X};
 
-  int i, j, k;
   int n, nblocks, nconstraints, *blocktypes, *blocksizes;
-  int nnz, blkcat, blksize, allocsize, *intvec;
-  double *dblvec;
 
   struct blockmatrix C;
   struct constraintmatrix *constraints;
-  struct blockmatrix X,Z;
-  double *yy, *y, *bb, *b;
+  struct blockmatrix X, Z;
+  double *y, *b;
   double pobj, dobj;
-  struct sparseblock *blockptr;
   int status;
 
   n = INTEGER(n_p)[0];
@@ -86,23 +83,23 @@ SEXP csdp(SEXP n_p,
   /*
    * Grab X
    */
-  X_p = blkmatrix_csdp2R(X);
+  X_p = PROTECT(blkmatrix_csdp2R(X));
   
   /*
    * Grab Z
    */
-  Z_p = blkmatrix_csdp2R(Z);
+  Z_p = PROTECT(blkmatrix_csdp2R(Z));
   
   /* Copy y */
-  y_p = double_vector_csdp2R(nconstraints, y);
+  y_p = PROTECT(double_vector_csdp2R(nconstraints, y));
 
-  PROTECT(pobj_p = allocVector(REALSXP,1)); REAL(pobj_p)[0] = pobj;
-  PROTECT(dobj_p = allocVector(REALSXP,1)); REAL(dobj_p)[0] = dobj;
-  PROTECT(status_p = allocVector(INTSXP,1)); INTEGER(status_p)[0] = status;
+  pobj_p = PROTECT(allocVector(REALSXP,1)); REAL(pobj_p)[0] = pobj;
+  dobj_p = PROTECT(allocVector(REALSXP,1)); REAL(dobj_p)[0] = dobj;
+  status_p = PROTECT(allocVector(INTSXP,1)); INTEGER(status_p)[0] = status;
   
   free_prob(n,nconstraints,C,b,constraints,X,y,Z);
 
-  PROTECT(ret = allocVector(VECSXP,6));
+  ret = PROTECT(allocVector(VECSXP,6));
   SET_VECTOR_ELT(ret,0,X_p);
   SET_VECTOR_ELT(ret,1,Z_p);
   SET_VECTOR_ELT(ret,2,y_p);
@@ -135,7 +132,7 @@ SEXP get_prob_info(struct blockmatrix X)
     intvec[i] = X.blocks[i].blocksize;
   SET_VECTOR_ELT(ret, 1, sizes);
 
-  UNPROTECT(2);
+  UNPROTECT(3);
   return ret;
 }
 
@@ -157,7 +154,7 @@ SEXP readsdpa(SEXP filename,
   status = read_prob(fname,&n,&k,&C,&b,&constraints,printlevel);
   if (status) error("Error reading sdpa file %s, status:%d\n",fname,status);
 
-  PROTECT(ret = allocVector(VECSXP,4));
+  ret = PROTECT(allocVector(VECSXP,4));
   SET_VECTOR_ELT(ret,0,blkmatrix_csdp2R(C));
   SET_VECTOR_ELT(ret,1,constraints_csdp2R(k,constraints));
   SET_VECTOR_ELT(ret,2,double_vector_csdp2R(k,b));
@@ -167,7 +164,7 @@ SEXP readsdpa(SEXP filename,
   free_mat(C);
   free_constraints(k,constraints);
 
-  UNPROTECT(5);
+  UNPROTECT(1);
   return ret;
 }
 
@@ -199,10 +196,10 @@ SEXP readsdpa_sol(SEXP filename,
     error("Reading reading solution in file %s: status %d\n",fname,status);
   }
 
-  PROTECT(ret = allocVector(VECSXP,3));
-  X_p = blkmatrix_csdp2R(X);
-  y_p = double_vector_csdp2R(k,y);
-  Z_p = blkmatrix_csdp2R(Z);
+  ret = PROTECT(allocVector(VECSXP,3));
+  X_p = PROTECT(blkmatrix_csdp2R(X));
+  y_p = PROTECT(double_vector_csdp2R(k,y));
+  Z_p = PROTECT(blkmatrix_csdp2R(Z));
 
   free_mat(C);
   free_mat(X);
@@ -337,4 +334,20 @@ void free_constraints(int k,
 
       free(constraints);
     };
+}
+
+
+static const R_CallMethodDef CallEntries[] = {
+  {"csdp",          (DL_FUNC) &csdp,          8},
+  {"readsdpa",      (DL_FUNC) &readsdpa,      2},
+  {"readsdpa_sol",  (DL_FUNC) &readsdpa_sol,  4},
+  {"writesdpa",     (DL_FUNC) &writesdpa,     9},
+  {"writesdpa_sol", (DL_FUNC) &writesdpa_sol, 6},
+  {NULL, NULL, 0}
+};
+
+void R_init_Rcsdp(DllInfo *dll)
+{
+  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+  R_useDynamicSymbols(dll, FALSE);
 }

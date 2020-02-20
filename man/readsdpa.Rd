@@ -19,7 +19,7 @@
   \item{b}{RHS vector}
   \item{K}{Cone specification, as used in \code{\link{csdp}}}
   \item{X}{Block structured primal optimal solution matrix}
-  \item{Z}{Block strucutured dual optimal solution matrix}
+  \item{Z}{Block structured dual optimal solution matrix}
   \item{y}{Dual optimal solution vector}
   \item{verbose}{Printout information as problem is read. Passed to CSDP's readsdpa function. Default \code{FALSE}}
   \item{m}{Number of constraints in problem.}
@@ -34,7 +34,7 @@
 }
 \value{
   Function \code{readsdpa} returns a list with elements \code{C,A,b,K}.
-  Function \code{readsdpa.sol} returns a listh with elements
+  Function \code{readsdpa.sol} returns a list with elements
   \code{X,Z,y}.
   All returned matrices are lists of objects of class \code{simple_triplet_sym_matrix}.
 }
