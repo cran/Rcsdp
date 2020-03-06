@@ -62,7 +62,7 @@ if test -z "${R_HOME}"; then
   exit 1
 fi
 
-dnl CC=`"${R_HOME}/bin/R" CMD config CC`
+CC=`"${R_HOME}/bin/R" CMD config CC`
 dnl CPP=`"${R_HOME}/bin/R" CMD config CPP`
 CFLAGS=`"${R_HOME}/bin/R" CMD config CFLAGS`
 CPPFLAGS=`"${R_HOME}/bin/R" CMD config CPPFLAGS`
