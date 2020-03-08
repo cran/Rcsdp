@@ -33,22 +33,22 @@ void initparams(params,pprintlevel)
     }
   else
     {
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->axtol));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->atytol));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->objtol));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->pinftol));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->dinftol));
-      fscanf(paramfile,"%*[^=]%*c%d",&(params->maxiter));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepfrac));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->maxstepfrac));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepp));
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepd));
-      fscanf(paramfile,"%*[^=]%*c%d",&(params->usexzgap));
-      fscanf(paramfile,"%*[^=]%*c%d",&(params->tweakgap));
-      fscanf(paramfile,"%*[^=]%*c%d",&(params->affine));
-      fscanf(paramfile,"%*[^=]%*c%d",pprintlevel);
-      fscanf(paramfile,"%*[^=]%*c%lf",&(params->perturbobj));
-      fscanf(paramfile,"%*[^=]%*c%d",&(params->fastmode));
+      int ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->axtol));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->atytol));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->objtol));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->pinftol));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->dinftol));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",&(params->maxiter));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepfrac));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->maxstepfrac));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepp));
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->minstepd));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",&(params->usexzgap));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",&(params->tweakgap));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",&(params->affine));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",pprintlevel);
+      ret = fscanf(paramfile,"%*[^=]%*c%lf",&(params->perturbobj));
+      ret = fscanf(paramfile,"%*[^=]%*c%d",&(params->fastmode));
       fclose(paramfile);
     };
 

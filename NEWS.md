@@ -1,3 +1,7 @@
+# Rcsdp 0.1.57
+
+* Fix remaining CRAN check issues (CC variable in Solaris - thanks Brian Ripley, ignore function return value)
+
 # Rcsdp 0.1.56
 
 * Added a `NEWS.md` file to track changes to the package.

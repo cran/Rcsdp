@@ -1,6 +1,6 @@
-15ed5b07fec68b2028d51fef2b43e2e0 *DESCRIPTION
+4b88dcffeaf4597bf1e3e240f2db7c2e *DESCRIPTION
 5a1eda5858de22bf9ec9f60130be4d74 *NAMESPACE
-db09f51b3021dc5364f4b559dc4cb9d0 *NEWS.md
+6b7170de3f81c10fde823016f5bd0ab4 *NEWS.md
 8d1fd9a5f3f417e416515a3437fccce9 *R/Rcsdp.R
 5713de1ba3211a2d1c196c3f9ab0c33f *R/convert.R
 35cf424b340f0d00b53782c57ddd2f72 *R/sdpa.R
@@ -8,7 +8,7 @@ db09f51b3021dc5364f4b559dc4cb9d0 *NEWS.md
 e0fe66539eeb52219b22f19ba0a11da0 *R/sparseMat.R
 d98ef6609dce920652f9c0ccbd5de365 *README.md
 024e41e0cf7762b657a67a1db102e73a *cleanup
-cb443dedfa1cfc3d113b37d866b142bd *configure
+f03a6550cc4c3a55dc957d48e8d46c64 *configure
 2f38a2fd3f214d23f6648610bf6fecfa *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 a819e48c58e815f639b509d779afa38b *inst/INSTALL
@@ -57,7 +57,7 @@ d9a449b69b9fc863cbf57e75a73383f7 *src/Csdp/lib/addscaledmat.c
 c225fe8b6295796c9801b8aff7fb0fd8 *src/Csdp/lib/copy_mat.c
 40ab23503fa769322517090f27eff2a5 *src/Csdp/lib/easysdp.c
 54bf66f58a027de903b06e50f61ae393 *src/Csdp/lib/freeprob.c
-10a58599ac89b4eed25e5a3bd02475d4 *src/Csdp/lib/initparams.c
+7f2f7355162f061f3914e03ed5f5f838 *src/Csdp/lib/initparams.c
 4f47f102f32188c92570a5ba1c98004b *src/Csdp/lib/initsoln.c
 744e2044cab5198442ab308049021017 *src/Csdp/lib/linesearch.c
 86832b75b2996632403c0c0cb933786c *src/Csdp/lib/make_i.c
