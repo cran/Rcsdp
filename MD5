@@ -1,4 +1,4 @@
-4b88dcffeaf4597bf1e3e240f2db7c2e *DESCRIPTION
+9bb392f4ae4de4ec8d86b1a22c5cc96a *DESCRIPTION
 5a1eda5858de22bf9ec9f60130be4d74 *NAMESPACE
 6b7170de3f81c10fde823016f5bd0ab4 *NEWS.md
 8d1fd9a5f3f417e416515a3437fccce9 *R/Rcsdp.R
@@ -8,7 +8,7 @@
 e0fe66539eeb52219b22f19ba0a11da0 *R/sparseMat.R
 d98ef6609dce920652f9c0ccbd5de365 *README.md
 024e41e0cf7762b657a67a1db102e73a *cleanup
-f03a6550cc4c3a55dc957d48e8d46c64 *configure
+cb443dedfa1cfc3d113b37d866b142bd *configure
 2f38a2fd3f214d23f6648610bf6fecfa *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 a819e48c58e815f639b509d779afa38b *inst/INSTALL
