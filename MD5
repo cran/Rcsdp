@@ -1,4 +1,4 @@
-9bb392f4ae4de4ec8d86b1a22c5cc96a *DESCRIPTION
+5193a625aabbfaa67a96aac273ed404b *DESCRIPTION
 5a1eda5858de22bf9ec9f60130be4d74 *NAMESPACE
 6b7170de3f81c10fde823016f5bd0ab4 *NEWS.md
 8d1fd9a5f3f417e416515a3437fccce9 *R/Rcsdp.R
@@ -8,12 +8,12 @@
 e0fe66539eeb52219b22f19ba0a11da0 *R/sparseMat.R
 d98ef6609dce920652f9c0ccbd5de365 *README.md
 024e41e0cf7762b657a67a1db102e73a *cleanup
-cb443dedfa1cfc3d113b37d866b142bd *configure
-2f38a2fd3f214d23f6648610bf6fecfa *configure.ac
+0304d0495cbb83bc74f82cdcaa70d17c *configure
+7496a2b0d7c61f5564d2540e3ca91043 *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 a819e48c58e815f639b509d779afa38b *inst/INSTALL
 b3f3231d098e45d6fcfc92a9b585b2ad *man/csdp-sparse.Rd
-b86cf1ff5142aed8fac4046587ad5f2d *man/csdp.Rd
+b0e4eaa41cd743a78f935584cfb566e0 *man/csdp.Rd
 17ebd5d49248492288bf246fb44036a7 *man/csdp.control.Rd
 6ddcaae5edd01a7f51f30b2068fd319b *man/readsdpa.Rd
 66640aa35694deed3d879fe88b72708c *src/Csdp/AUTHORS

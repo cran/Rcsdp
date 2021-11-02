@@ -111,7 +111,7 @@ csdp(C, A, b, K,control=csdp.control())
     \item Lu, F., Lin, Y., and Wahba, G.:\cr
       \emph{Robust Manifold Unfolding with Kernel Regularization} TR
       1108, October, 2005. \cr
-      \url{http://www.stat.wisc.edu/~wahba/ftp1/tr1108rr.pdf}
+      \url{http://pages.stat.wisc.edu/~wahba/ftp1/tr1108rr.pdf}
 }
 }
 \author{Hector Corrada Bravo. CSDP written by Brian Borchers. }
