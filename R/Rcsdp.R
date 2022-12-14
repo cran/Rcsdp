@@ -1,6 +1,6 @@
 # Rcsdp.R
 # Interface to the CSDP semidefinite programming library by Brian Borchers
-# https://projects.coin-or.org/Csdp/
+# https://github.com/coin-or/Csdp/
 #
 # Created: 22 February 2008
 # Author: Hector Corrada Bravo

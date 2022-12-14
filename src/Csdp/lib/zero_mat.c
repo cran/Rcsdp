@@ -6,9 +6,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void zero_mat(A)
-     struct blockmatrix A;
-{
+void zero_mat(struct blockmatrix A) {
   int i,j;
   int blk;
 

@@ -6,9 +6,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void sym_mat(A)
-     struct blockmatrix A;
-{
+void sym_mat(struct blockmatrix A) {
   int i;
   int j;
   int blk;

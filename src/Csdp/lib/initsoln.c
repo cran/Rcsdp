@@ -7,16 +7,14 @@
 #include <math.h>
 #include "declarations.h"
 
-void initsoln(n,k,C,a,constraints,pX0,py0,pZ0)
-     int n;
-     int k;
-     struct blockmatrix C;
-     double *a;
-     struct constraintmatrix *constraints;
-     struct blockmatrix *pX0;
-     double **py0;
-     struct blockmatrix *pZ0;
-{
+void initsoln(int n,
+              int k,
+              struct blockmatrix C,
+              double *a,
+              struct constraintmatrix *constraints,
+              struct blockmatrix *pX0,
+              double **py0,
+              struct blockmatrix *pZ0) {
   int i,j;
   double alpha,beta;
   double maxnrmA,nrmA;

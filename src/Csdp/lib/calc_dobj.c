@@ -4,12 +4,10 @@
 
 #include "declarations.h"
 
-double calc_dobj(k,a,y,constant_offset)
-     int k;
-     double *a;
-     double *y;
-     double constant_offset;
-{
+double calc_dobj(int k,
+                 double *a,
+                 double *y,
+                 double constant_offset) {
   double s;
   int incx=1;
 

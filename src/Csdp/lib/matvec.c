@@ -9,11 +9,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void matvec(A,x,y)
-     struct blockmatrix A;
-     double *x;
-     double *y;
-{
+void matvec(struct blockmatrix A, double *x, double *y) {
   int blk,i,n;
   int p;
   double *ap;

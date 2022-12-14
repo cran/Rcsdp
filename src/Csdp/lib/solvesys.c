@@ -8,12 +8,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-int solvesys(m,ldam,A,rhs)
-     int m;
-     int ldam;
-     double *A;
-     double *rhs;
-{
+int solvesys(int m, int ldam, double *A, double *rhs) {
   int incx;
   int info;
 

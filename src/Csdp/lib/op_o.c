@@ -18,16 +18,14 @@
 
 
 void
-op_o(k, constraints, byblocks, Zi, X, O, work1, work2)
-  int             k;
-  struct constraintmatrix *constraints;
-  struct sparseblock **byblocks;
-  struct blockmatrix Zi;
-  struct blockmatrix X;
-  double         *O;
-  struct blockmatrix work1;
-  struct blockmatrix work2;
-{
+op_o(int k,
+	 struct constraintmatrix *constraints,
+	 struct sparseblock **byblocks,
+	 struct blockmatrix Zi,
+	 struct blockmatrix X,
+	 double *O,
+	 struct blockmatrix work1,
+	 struct blockmatrix work2) {
   int             i, j;
   int             ii, jj;
   int             ldam;

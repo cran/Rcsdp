@@ -16,10 +16,11 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void mat_mult(scale1,scale2,A,B,C)
-     double scale1,scale2;
-     struct blockmatrix A,B,C;
-{
+void mat_mult(double scale1, 
+			  double scale2,
+			  struct blockmatrix A,
+			  struct blockmatrix B,
+			  struct blockmatrix C) {
   int blk,i,n;
   double *ap;
   double *bp;
@@ -82,14 +83,12 @@ void mat_mult(scale1,scale2,A,B,C)
     };
 }
 
-void mat_mult_raw(n,scale1,scale2,ap,bp,cp)
-     int n;
-     double scale1;
-     double scale2;
-     double *ap;
-     double *bp;
-     double *cp;
-{
+void mat_mult_raw(int n,
+                  double scale1,
+				  double scale2,
+				  double *ap,
+				  double *bp,
+				  double *cp) {
 #ifdef NOUNDERBLAS
 #ifdef CAPSBLAS
 	  DGEMM("N","N",&n,&n,&n,&scale1,ap,&n,bp,&n,&scale2,cp,&n);
@@ -109,14 +108,12 @@ void mat_mult_raw(n,scale1,scale2,ap,bp,cp)
 #ifdef USEATLAS
 
 
-void mat_mult_rawatlas(n,scale1,scale2,ap,bp,cp)
-     int n;
-     double scale1;
-     double scale2;
-     double *ap;
-     double *bp;
-     double *cp;
-{
+void mat_mult_rawatlas(int n,
+					   double scale1,
+					   double scale2,
+					   double *ap,
+					   double *bp,
+					   double *cp) {
 enum CBLAS_ORDER {CblasRowMajor=101, CblasColMajor=102 };
 enum CBLAS_TRANSPOSE {CblasNoTrans=111, CblasTrans=112, CblasConjTrans=113,
 		      AtlasConj=114};

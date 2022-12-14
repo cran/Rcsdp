@@ -6,14 +6,12 @@
 #include <stdlib.h>
 #include "declarations.h"
 
-int write_sol(fname,n,k,X,y,Z)
-     char *fname;
-     int n;
-     int k;
-     struct blockmatrix X;
-     double *y;
-     struct blockmatrix Z;
-{
+int write_sol(char *fname,
+              int n,
+              int k,
+              struct blockmatrix X,
+              double *y,
+              struct blockmatrix Z) {
   FILE *fid;
   int i;
   int j;

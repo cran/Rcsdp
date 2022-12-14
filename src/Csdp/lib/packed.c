@@ -7,9 +7,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void store_packed(A,B)
-     struct blockmatrix A,B;
-{
+void store_packed(struct blockmatrix A, struct blockmatrix B) {
   int blk,i,j,n;
   double *p;
   double *q;
@@ -42,9 +40,7 @@ void store_packed(A,B)
 
 }
 
-void store_unpacked(A,B)
-     struct blockmatrix A,B;
-{
+void store_unpacked(struct blockmatrix A, struct blockmatrix B) {
   int blk,i,j,n;
   double *p;
   double *q;
@@ -89,10 +85,7 @@ void store_unpacked(A,B)
 
 
 
-void alloc_mat_packed(A,pB)
-     struct blockmatrix A;
-     struct blockmatrix *pB;
-{
+void alloc_mat_packed(struct blockmatrix A, struct blockmatrix *pB) {
   int blk,n;
 
   /*
@@ -148,9 +141,7 @@ void alloc_mat_packed(A,pB)
 }
 
 
-void free_mat_packed(A)
-     struct blockmatrix A;
-{
+void free_mat_packed(struct blockmatrix A) {
   int blk;
 
 
@@ -182,9 +173,7 @@ void free_mat_packed(A)
 
 }
 
-void triu(A)
-     struct blockmatrix A;
-{
+void triu(struct blockmatrix A) {
   int i,j,n;
   int blk;
 

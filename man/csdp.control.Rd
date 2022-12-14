@@ -73,12 +73,12 @@ If 1, csdp will be faster but also less accurate.
 }
 }
 \details{
-Parameters are fully described in CSDP user guide. \url{https://projects.coin-or.org/Csdp/}}
+Parameters are fully described in CSDP user guide. \url{https://github.com/coin-or/Csdp/}}
 \value{
 A list with values for all parameters. Any parameters not passed to function are set to default.
 }
 \references{
-\url{https://projects.coin-or.org/Csdp/}
+\url{https://github.com/coin-or/Csdp/}
 }
 \author{
 Hector Corrada Bravo, CSDP by Brian Borchers

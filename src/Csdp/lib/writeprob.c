@@ -6,14 +6,12 @@
 #include <stdlib.h>
 #include "declarations.h"
 
-int write_prob(fname,n,k,C,a,constraints)
-     char *fname;
-     int n;
-     int k;
-     struct blockmatrix C;
-     double *a;
-     struct constraintmatrix *constraints;
-{
+int write_prob(char *fname,
+               int n,
+               int k,
+               struct blockmatrix C,
+               double *a,
+               struct constraintmatrix *constraints) {
   FILE *fid;
   int i;
   int j;

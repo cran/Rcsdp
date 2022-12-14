@@ -8,11 +8,9 @@
 #include <stdio.h>
 #include "declarations.h"
 
-double calc_pobj(C,X,constant_offset)
-     struct blockmatrix C;
-     struct blockmatrix X;
-     double constant_offset;
-{
+double calc_pobj(struct blockmatrix C,
+                 struct blockmatrix X,
+                 double constant_offset) {
   int blk;
   int i,j;
   double pobj;

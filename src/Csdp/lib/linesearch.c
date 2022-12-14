@@ -11,17 +11,18 @@
 
 #define LANCZOSITS 30
 
-double linesearch(n,dX,work1,work2,work3,cholinv,q,z,workvec,
-		  stepfrac,start,printlevel)
-     int n;
-     struct blockmatrix dX,work1,work2,work3,cholinv;
-     double *q;
-     double *z;
-     double *workvec;
-     double stepfrac;
-     double start;
-     int printlevel;
-{
+double linesearch(int n,
+                  struct blockmatrix dX,
+                  struct blockmatrix work1,
+				          struct blockmatrix work2,
+                  struct blockmatrix work3,
+				          struct blockmatrix cholinv,
+                  double *q,
+                  double *z,
+				          double *workvec,
+                  double stepfrac,
+                  double start,
+				          int printlevel) {
   int i,j,jj;
   double alpha;
   double scale1;

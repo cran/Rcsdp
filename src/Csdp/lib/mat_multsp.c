@@ -43,11 +43,12 @@
 #define SPARSELIMC 0.01
 #endif
 
-void mat_multspb(scale1,scale2,A,B,C,fill)
-     double scale1,scale2;
-     struct blockmatrix A,B,C;
-     struct constraintmatrix fill;
-{
+void mat_multspb(double scale1,
+				 double scale2,
+				 struct blockmatrix A,
+				 struct blockmatrix B,
+				 struct blockmatrix C,
+				 struct constraintmatrix fill) {
   int blk,i,ii,j;
   int blksize,p,q;
   struct sparseblock *ptr;
@@ -280,11 +281,12 @@ void mat_multspb(scale1,scale2,A,B,C,fill)
  *  This version of mat_mult is specialized for sparse A matrices.
  */
 
-void mat_multspa(scale1,scale2,A,B,C,fill)
-     double scale1,scale2;
-     struct blockmatrix A,B,C;
-     struct constraintmatrix fill;
-{
+void mat_multspa(double scale1,
+				 double scale2,
+				 struct blockmatrix A,
+				 struct blockmatrix B,
+				 struct blockmatrix C,
+				 struct constraintmatrix fill) {
   int blk,i,j,ii;
   int blksize,p,q;
   struct sparseblock *ptr;
@@ -525,11 +527,12 @@ void mat_multspa(scale1,scale2,A,B,C,fill)
  *  to elements described in fill.  
  */
 
-void mat_multspc(scale1,scale2,A,B,C,fill)
-     double scale1,scale2;
-     struct blockmatrix A,B,C;
-     struct constraintmatrix fill;
-{
+void mat_multspc(double scale1,
+ 				 double scale2,
+				 struct blockmatrix A,
+				 struct blockmatrix B,
+				 struct blockmatrix C,
+				 struct constraintmatrix fill) {
   int blk,i,j,ii;
   int blksize,p,q;
   struct sparseblock *ptr;

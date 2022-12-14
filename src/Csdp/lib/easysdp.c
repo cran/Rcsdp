@@ -12,19 +12,17 @@
 #include <math.h>
 #include "declarations.h"
 
-int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
-     int n;
-     int k;
-     struct blockmatrix C;
-     double *a;
-     struct constraintmatrix *constraints;
-     double constant_offset;
-     struct blockmatrix *pX;
-     double **py;
-     struct blockmatrix *pZ;
-     double *ppobj;
-     double *pdobj;
-{
+int easy_sdp(int n,
+             int k,
+             struct blockmatrix C,
+             double *a,
+             struct constraintmatrix *constraints,
+             double constant_offset,
+             struct blockmatrix *pX,
+             double **py,
+             struct blockmatrix *pZ,
+             double *ppobj,
+             double *pdobj) {
   int ret;
   struct constraintmatrix fill;
   struct paramstruc params;
@@ -556,12 +554,10 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
 
 }
 
-int structnnz(n,k,C,constraints)
-     int n;
-     int k;
-     struct blockmatrix C;
-     struct constraintmatrix *constraints;
-{
+int structnnz(int n,
+              int k,
+              struct blockmatrix C,
+              struct constraintmatrix *constraints) {
   int i,j;
   int ii,jj;
   int nnz;
@@ -614,11 +610,7 @@ int structnnz(n,k,C,constraints)
   return(nnz);
 }
 
-int actnnz(n,lda,A)
-     int n;
-     int lda;
-     double A[];
-{
+int actnnz(int n, int lda, double A[]) {
   int i,j;
   int nnz;
  
@@ -640,11 +632,7 @@ int actnnz(n,lda,A)
   return(nnz);
 }
 
-int bandwidth(n,lda,A)
-     int n;
-     int lda;
-     double A[];
-{
+int bandwidth(int n, int lda, double A[]) {
   int i;
   int j;
   int bw;

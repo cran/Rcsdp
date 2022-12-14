@@ -12,14 +12,12 @@
 #include <math.h>
 #include "declarations.h"
 
-void makefill(k,C,constraints,pfill,work1,printlevel)
-     int k;
-     struct blockmatrix C;
-     struct constraintmatrix *constraints;
-     struct constraintmatrix *pfill;
-     struct blockmatrix work1;
-     int printlevel;
-{
+void makefill(int k,
+     		  struct blockmatrix C,
+     		  struct constraintmatrix *constraints,
+     		  struct constraintmatrix *pfill,
+     		  struct blockmatrix work1,
+     		  int printlevel) {
   int i,j,p,q,blk,blksize;
   struct sparseblock *ptr;
 

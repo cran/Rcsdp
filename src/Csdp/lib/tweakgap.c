@@ -20,19 +20,13 @@
 #include "declarations.h"
 
 
-void tweakgap(n,k,a,constraints,gap,Z,dZ,y,dy,work1,work2,work3,work4,workvec1,
-	      workvec2,workvec3,workvec4,printlevel)
-     int n;
-     int k;
-     double *a;
-     struct constraintmatrix *constraints;
-     double gap;
-     struct blockmatrix Z,dZ;
-     double *y,*dy;
-     struct blockmatrix work1,work2,work3,work4;
-     double *workvec1,*workvec2,*workvec3,*workvec4;
-     int printlevel;
-{
+void tweakgap(int n, int k, double *a, struct constraintmatrix *constraints,
+              double gap, struct blockmatrix Z, struct blockmatrix dZ,
+              double *y, double *dy,
+              struct blockmatrix work1, struct blockmatrix work2,
+              struct blockmatrix work3, struct blockmatrix work4,
+              double *workvec1, double *workvec2,
+              double *workvec3, double *workvec4, int printlevel) {
   int i;
   double norma;
   double alpha;

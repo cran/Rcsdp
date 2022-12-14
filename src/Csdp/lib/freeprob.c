@@ -5,16 +5,8 @@
 #include <stdlib.h>
 #include "declarations.h"
 
-void free_prob(n,k,C,a,constraints,X,y,Z)
-     int n;
-     int k;
-     struct blockmatrix C;
-     double *a;
-     struct constraintmatrix *constraints;
-     struct blockmatrix X;
-     double *y;
-     struct blockmatrix Z;
-{
+void free_prob(int n, int k, struct blockmatrix C, double *a, struct constraintmatrix *constraints,
+			   struct blockmatrix X, double *y, struct blockmatrix Z) {
   int i;
   struct sparseblock *ptr;
   struct sparseblock *oldptr;

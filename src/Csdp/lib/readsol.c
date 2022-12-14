@@ -6,17 +6,15 @@
 #include <stdlib.h>
 #include "declarations.h"
 
-void skip_to_end_of_line();
+void skip_to_end_of_line(FILE *fid);
 
-int read_sol(fname,n,k,C,pX,py,pZ)
-     char *fname;
-     int n;
-     int k;
-     struct blockmatrix C;
-     struct blockmatrix *pX;
-     double **py;
-     struct blockmatrix *pZ;
-{
+int read_sol(char *fname,
+             int n,
+             int k,
+             struct blockmatrix C,
+             struct blockmatrix *pX,
+             double **py,
+             struct blockmatrix *pZ) {
   FILE *fid;
   int i;
   int indexi;

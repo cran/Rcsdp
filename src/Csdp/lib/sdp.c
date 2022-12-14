@@ -65,51 +65,46 @@ double endtime=0.0;
 
 #endif
 
-int sdp(n,k,C,a,constant_offset,constraints,byblocks,fill,X,y,Z,cholxinv,
-	cholzinv,pobj,dobj,work1,work2,work3,workvec1,workvec2,workvec3,
-	workvec4,workvec5,workvec6,workvec7,workvec8,diagO,bestx,besty,bestz,
-	Zi,O,rhs,dZ,dX,dy,dy1,Fp,printlevel,parameters)
-     int n;
-     int k;
-     struct blockmatrix C;
-     double *a;
-     double constant_offset;
-     struct constraintmatrix *constraints;
-     struct sparseblock **byblocks;
-     struct constraintmatrix fill;
-     struct blockmatrix X;
-     double *y;
-     struct blockmatrix Z;     
-     struct blockmatrix cholxinv;
-     struct blockmatrix cholzinv;
-     double *pobj;
-     double *dobj;
-     struct blockmatrix work1;     
-     struct blockmatrix work2;     
-     struct blockmatrix work3;     
-     double *workvec1;
-     double *workvec2;
-     double *workvec3;
-     double *workvec4;
-     double *workvec5;
-     double *workvec6;
-     double *workvec7;
-     double *workvec8;
-     double *diagO;
-     struct blockmatrix bestx;
-     double *besty;
-     struct blockmatrix bestz;
-     struct blockmatrix Zi;
-     double *O;
-     double *rhs;
-     struct blockmatrix dZ;
-     struct blockmatrix dX;
-     double *dy;
-     double *dy1;
-     double *Fp;
-     int printlevel;
-     struct paramstruc parameters;
-{
+int sdp(int n,
+		int k,
+		struct blockmatrix C,
+		double *a,
+		double constant_offset,
+		struct constraintmatrix *constraints,
+		struct sparseblock **byblocks,
+		struct constraintmatrix fill,
+		struct blockmatrix X,
+		double *y,
+		struct blockmatrix Z,     
+		struct blockmatrix cholxinv,
+		struct blockmatrix cholzinv,
+		double *pobj,
+		double *dobj,
+		struct blockmatrix work1,     
+		struct blockmatrix work2,     
+		struct blockmatrix work3,     
+		double *workvec1,
+		double *workvec2,
+		double *workvec3,
+		double *workvec4,
+		double *workvec5,
+		double *workvec6,
+		double *workvec7,
+		double *workvec8,
+		double *diagO,
+		struct blockmatrix bestx,
+		double *besty,
+		struct blockmatrix bestz,
+		struct blockmatrix Zi,
+		double *O,
+		double *rhs,
+		struct blockmatrix dZ,
+		struct blockmatrix dX,
+		double *dy,
+		double *dy1,
+		double *Fp,
+		int printlevel,
+		struct paramstruc parameters) {
   double gap;
   double relgap;
   double mu=1.0e30;

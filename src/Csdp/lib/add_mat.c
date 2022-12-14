@@ -6,10 +6,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void add_mat(A,B)
-     struct blockmatrix A;
-     struct blockmatrix B;
-{
+void add_mat(struct blockmatrix A, struct blockmatrix B) {
   int blk;
   int i,j;
 

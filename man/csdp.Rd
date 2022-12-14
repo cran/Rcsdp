@@ -104,7 +104,7 @@ csdp(C, A, b, K,control=csdp.control())
 }
 \references{
   \itemize{
-  \item \url{https://projects.coin-or.org/Csdp/}
+  \item \url{https://github.com/coin-or/Csdp/}
   \item Borchers, B.:\cr
       \emph{CSDP, A C Library for Semidefinite Programming} Optimization Methods and Software  11(1):613-623, 1999\cr
       \url{http://euler.nmt.edu/~brian/csdppaper.pdf}

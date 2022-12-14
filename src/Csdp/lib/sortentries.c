@@ -49,11 +49,7 @@ int mycompare(const void *p1, const void *p2)
 
 }
 
-void sort_entries(k,C,constraints)
-     int k;
-     struct blockmatrix C;
-     struct constraintmatrix *constraints;
-{
+void sort_entries(int k, struct blockmatrix C, struct constraintmatrix *constraints) {
   int i,j;
   struct sparseblock *ptr;
   int maxentries;

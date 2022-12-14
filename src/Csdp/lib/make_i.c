@@ -6,9 +6,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void make_i(A)
-     struct blockmatrix A;
-{
+void make_i(struct blockmatrix A) {
   int blk,i,j;
   double *p;
 

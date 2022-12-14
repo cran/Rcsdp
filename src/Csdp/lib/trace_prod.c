@@ -8,10 +8,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-double trace_prod(A,B)
-     struct blockmatrix A;
-     struct blockmatrix B;
-{
+double trace_prod(struct blockmatrix A, struct blockmatrix B) {
   int blk;
   double sum;
   int i;

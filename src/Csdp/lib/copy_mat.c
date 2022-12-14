@@ -6,9 +6,7 @@
 #include <stdio.h>
 #include "declarations.h"
 
-void copy_mat(A,B)
-     struct blockmatrix A,B;
-{
+void copy_mat(struct blockmatrix A, struct blockmatrix B) {
   int blk,i,j;
   double *p;
   double *q;

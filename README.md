@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package is an R interface to the CSDP semidefinite programming library by Brian Borchers (https://projects.coin-or.org/Csdp/)
+This package is an R interface to the CSDP semidefinite programming library by Brian Borchers (https://github.com/coin-or/Csdp/)
 
 ## Installation
 
