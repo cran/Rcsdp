@@ -15,7 +15,7 @@
   classes in the \code{Matrix} hierarchy are provided.}
 \usage{
    simple_triplet_sym_matrix(i,j,v,n=max(c(i,j)),check.ind=FALSE)
-   \method{as.simple_triplet_sym_matrix}{matrix}(x,check.sym=FALSE)
+   \method{as.simple_triplet_sym_matrix}{matrix}(x,check.sym=FALSE,...)
    \method{as.matrix}{simple_triplet_sym_matrix}(x,...)
    \method{as.vector}{simple_triplet_sym_matrix}(x,...)
    .simple_triplet_zero_sym_matrix(n,mode="double")

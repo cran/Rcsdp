@@ -19,7 +19,7 @@ function(x,...)
 as.simple_triplet_sym_matrix.simple_triplet_sym_matrix <- function(x,...) x
 
 as.simple_triplet_sym_matrix.matrix <-
-function(x,check.sym=FALSE)
+function(x,check.sym=FALSE, ...)
 {
     if(prod(dim(x)) == 0L)
         return(simple_triplet_sym_matrix(integer(), integer(), c(x), n=nrow(x)))

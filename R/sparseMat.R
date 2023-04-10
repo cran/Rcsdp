@@ -6,13 +6,13 @@
     as.simple_triplet_sym_matrix(as(x,"dsTMatrix"))
   }
 
-as.simple_triplet_sym_matrix.dgeMatrix <- function(x) .not.dsTMatrix(x,"dgeMatrix")
-as.simple_triplet_sym_matrix.dsyMatrix <- function(x) .not.dsTMatrix(x,"dsyMatrix")
-as.simple_triplet_sym_matrix.dpoMatrix <- function(x) .not.dsTMatrix(x,"dpoMatrix")
-as.simple_triplet_sym_matrix.dgTMatrix <- function(x) .not.dsTMatrix(x,"dgTMatrix")
-as.simple_triplet_sym_matrix.dsCMatrix <- function(x) .not.dsTMatrix(x,"dsCMatrix")
+as.simple_triplet_sym_matrix.dgeMatrix <- function(x, ...) .not.dsTMatrix(x,"dgeMatrix")
+as.simple_triplet_sym_matrix.dsyMatrix <- function(x, ...) .not.dsTMatrix(x,"dsyMatrix")
+as.simple_triplet_sym_matrix.dpoMatrix <- function(x, ...) .not.dsTMatrix(x,"dpoMatrix")
+as.simple_triplet_sym_matrix.dgTMatrix <- function(x, ...) .not.dsTMatrix(x,"dgTMatrix")
+as.simple_triplet_sym_matrix.dsCMatrix <- function(x, ...) .not.dsTMatrix(x,"dsCMatrix")
 as.simple_triplet_sym_matrix.dsTMatrix <-
-  function(x)
+  function(x, ...)
   {
     if(!inherits(x,"dsTMatrix"))
       stop("Argument 'x' must be of class 'dsTMatrix'")
@@ -39,7 +39,7 @@ as.simple_triplet_sym_matrix.dsTMatrix <-
 #    new("dgTMatrix",i=as.integer(x$i-1),j=as.integer(x$j-1),x=v,Dim=as.integer(c(x$n,x$n)),uplo="L")
 #  })
 
-as.simple_triplet_sym_matrix.ddiMatrix <- function(x)
+as.simple_triplet_sym_matrix.ddiMatrix <- function(x, ...)
   {
     if(!inherits(x,"ddiMatrix"))
        stop("Argument 'x' must be of class 'ddiMatrix'")
