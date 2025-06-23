@@ -268,5 +268,10 @@ void dtrtri_(const char *, const char *, int *, double *, int *, int *);
 #endif
 #endif
 
+#include <R_ext/Error.h>
+
+#define printf REprintf
+#define exit(n) Rf_error("libdsp error code %d\n", n)
+#define fflush(stdout)
 
 #endif

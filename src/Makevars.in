@@ -6,5 +6,5 @@ $(SHLIB): @CSDP_TS@
 
 Csdp.ts:
 	(cd Csdp/lib && \
-	($(MAKE) libsdp.a CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS) -DNOSHORTS -I../include" AR="$(AR)" RANLIB="$(RANLIB)") && \
+	($(MAKE) libsdp.a CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS) -DNOSHORTS -I../include -I$(R_INCLUDE_DIR)" AR="$(AR)" RANLIB="$(RANLIB)") && \
 	touch $@)

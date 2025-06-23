@@ -1,4 +1,4 @@
-baefccc63ccd3a5db5369b91dcd6b2ba *DESCRIPTION
+69263e5d2cfec45ce31835d5a613243c *DESCRIPTION
 5a1eda5858de22bf9ec9f60130be4d74 *NAMESPACE
 6b7170de3f81c10fde823016f5bd0ab4 *NEWS.md
 6ac2c4b9329107ecb415fa6773c70ea8 *R/Rcsdp.R
@@ -8,8 +8,8 @@ bad9dfd73664e7815c5e74ddb21bf9ff *R/sparse.R
 7e71c5edd6341f95fc403ac83fff8ac8 *R/sparseMat.R
 fd30926823ca586a13760cb6f9e209ef *README.md
 024e41e0cf7762b657a67a1db102e73a *cleanup
-0304d0495cbb83bc74f82cdcaa70d17c *configure
-7496a2b0d7c61f5564d2540e3ca91043 *configure.ac
+429bc897ada312d08c1b5c663b6731e5 *configure
+f7c1224b089f266163668a71a4a66583 *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 a819e48c58e815f639b509d779afa38b *inst/INSTALL
 6a9be91c2148c41b60243c7d2d7bf484 *man/csdp-sparse.Rd
@@ -42,7 +42,7 @@ c4150c018b148c145c9a382f8aba5991 *src/Csdp/doc/example.c
 e98d1ec7418006c5d991753907b758db *src/Csdp/example/Makefile
 4c1574ede2fc4f90ffec3728c3c85dd0 *src/Csdp/example/example.c
 e77f8e4d21e4760c4ef21878cf263a3e *src/Csdp/include/blockmat.h
-05eb0165b487537d3d322c3356c547ce *src/Csdp/include/declarations.h
+adac6cab08fb3ee855e2aa73d381aedb *src/Csdp/include/declarations.h
 c6f1afa8b3c444743d570e9fba173830 *src/Csdp/include/index.h
 f2ce87e96b703c1c3fa4842db4550688 *src/Csdp/include/parameters.h
 45137a35dca8adc450690b4cda090576 *src/Csdp/lib/Fnorm.c
@@ -103,8 +103,8 @@ ddcb577bdb4c99c17674654ecdf5a3e7 *src/Csdp/theta/complement.c
 b0a667fa6ddb13c9c5af57a923b55367 *src/Csdp/theta/graphtoprob.c
 05fe43f93ae72eb5f4f6bced0353653b *src/Csdp/theta/rand_graph.c
 c83a85a5562349750e8600439304c5ef *src/Csdp/theta/theta.c
-38650b940d70a88b5d6b7fe5ef01564a *src/Makevars.in
-470ae585d47a8084362b0fcc75189a7f *src/Makevars.win
+cdca81fffe1069e10a4b5c17196f771f *src/Makevars.in
+4e55dbc68b3f18b4516fe544d8eba0fc *src/Makevars.win
 a88fc78c4b970696f61fd93849146cbc *src/Rcsdp.c
 d4dc3e3a877ae7d30177065f9efb9d7e *src/convert.c
 fa81c02e7f921b46245e34f3db5f0703 *src/testing.c

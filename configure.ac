@@ -16,10 +16,10 @@ AC_INIT([Rcsdp],[0.1.1])
 FOUND_ALL=""
 
 dnl Check if global variables are already set, if so we are done
-if test [-n "$PKG_CFLAGS" -a -n "$PKG_CPPFLAGS" -a -n "$PKG_LIBS"] ; then
+if test -n "$PKG_CFLAGS" && test -n "$PKG_CPPFLAGS" && test -n "$PKG_LIBS" ; then
     FOUND_ALL="yes"
 else
-    if test [-n "$PKG_CFLAGS" -o -n "$PKG_CPPFLAGS" -o -n "$PKG_LIBS"] ; then
+    if test -n "$PKG_CFLAGS" || test -n "$PKG_CPPFLAGS" || test -n "$PKG_LIBS" ; then
 	AC_MSG_ERROR([All three of PKG_CFLAGS PKG_CPPFLAGS and PKG_LIBS must be given together])
     fi
 fi
@@ -35,7 +35,7 @@ AC_ARG_WITH([csdp-dir],
     CSDP_DIR=$withval,
     CSDP_DIR="")
 
-if test [-z "$FOUND_ALL" -a -n "$CSDP_DIR"] ; then
+if test -z "$FOUND_ALL" && test -n "$CSDP_DIR" ; then
     if test [! -d "$CSDP_DIR"] ; then
 	AC_MSG_ERROR([CSDP installation directory $CSDP_DIR does not exist])
     fi
@@ -84,7 +84,7 @@ if test [-n "$FOUND_ALL"] ; then
     CPPFLAGS="${CPPFLAGS} ${PKG_CPPFLAGS}"
     
     AC_CHECK_HEADER(declarations.h)
-    if test "${ac_cv_header_declarations_h}" == no; then
+    if test "${ac_cv_header_declarations_h}" = no; then
 	AC_MSG_ERROR([CSDP header declarations.h not found in provided location])
     fi
     
